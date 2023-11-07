@@ -52,7 +52,6 @@ MIDDLEWARE = [
 ]
 
 
-
 ROOT_URLCONF = 'carotte.urls'
 
 TEMPLATES = [
@@ -128,4 +127,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # lala
-# AUTH_USER_MODEL = "app.User"
+AUTH_USER_MODEL = "app.User"
+
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': '%d-%m-%Y, %H:%M',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
+        )
+    }
