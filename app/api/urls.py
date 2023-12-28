@@ -1,9 +1,12 @@
 from django.urls import path
+from django.views.generic import TemplateView
 
 from . import views
 
 urlpatterns = [
-    path('', views.index_boards),
+    # index
+    path('', views.documentation),
+    path('boards/', views.index_boards),
     path('users/', views.index_users),
     # boards
     path('new/board/', views.new_board),
@@ -22,5 +25,6 @@ urlpatterns = [
     path('new/label/board/<str:id>/', views.new_label),
     # user
     path('register/', views.register),
+
 
 ]

@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Trello API Django</title>
+</head>
+<body class="container mt-5">
+
+<h1>Documentation Trello API Django</h1>
+<p>lalala</p>
+
+<div class="row row-cols-3 g-2">
+
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Register </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-primary me-2">POST</div>
+                 <p class="fw-bold mb-0">api/register/</p>
+             </div>
+             <ul>
+                 <li>explications sup</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code>{"user created"}</code></li>
+                 <li><code>{"try something different"}</code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Index all users </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-success me-2">GET</div>
+                 <p class="fw-bold mb-0">api/users/</p>
+             </div>
+             <ul>
+                 <li>explications sup</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code></code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+
+<!--    BOARDS-->
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Index all boards ?? should only be yours </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-success me-2">GET</div>
+                 <p class="fw-bold mb-0">api/boards/</p>
+             </div>
+             <ul>
+                 <li>explications sup</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code></code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Create a new board </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-primary me-2">POST</div>
+                 <p class="fw-bold mb-0">api/new/board/</p>
+             </div>
+             <ul>
+                 <li>lala</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code></code></li>
+                 <li><code>"try again</code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Display one board </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-success me-2">GET</div>
+                 <p class="fw-bold mb-0">api/board/{boardId}</p>
+             </div>
+             <ul>
+                 <li>consist of: lists, cards, labels</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code></code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Edit a board </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-success me-2">GET</div>
+                 <p class="fw-bold mb-0">api/board/{boardId}</p>
+             </div>
+             <ul>
+                 <li>consist of: lists, cards, labels</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code></code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+        <div class="col">
+        <div class="card">
+            <div class="card-header">delete a board </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-danger me-2">DELETE</div>
+                 <p class="fw-bold mb-0">api/delete/board/{boardId}</p>
+             </div>
+
+             <p>Response</p>
+             <ul>
+                 <li><code>"bye bye board"</code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+        <div class="col">
+        <div class="card">
+            <div class="card-header">Add a list to a board </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-primary me-2">POST</div>
+                 <p class="fw-bold mb-0">api/new/list/board/{boardId}</p>
+             </div>
+             <ul>
+                 <li>consist of: name</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code>"new list created" et faudrait retourner l'objet.</code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+        <div class="col">
+        <div class="card">
+            <div class="card-header">Edit a list from a board </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-success me-2">PUT</div>
+                 <p class="fw-bold mb-0">api/edit/list/{listId}</p>
+             </div>
+             <ul>
+                 <li>consist of: name .</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code>"not yours to change</code></li>
+                    <li><code>"list changes saved"</code></li>
+          </ul>
+         </div>
+        </div>
+    </div>
+        <div class="col">
+        <div class="card">
+            <div class="card-header">delete a list  </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-danger me-2">DELETE</div>
+                 <p class="fw-bold mb-0">api/delete/list/{listId}</p>
+             </div>
+
+             <p>Response</p>
+             <ul>
+                <li><code> pas de verification??</code></li>
+                 <li><code>"list deleted"</code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+        <div class="col">
+        <div class="card">
+            <div class="card-header">Add a card to a list </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-primaryuccess me-2">POST</div>
+                 <p class="fw-bold mb-0">api/new/card/list/{listId}</p>
+             </div>
+             <ul>
+                 <li>consist of: content .</li>
+                 <li>mettre exemple de body</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code>"no such list"</code></li>
+                    <li><code>"card created"</code></li>
+          </ul>
+         </div>
+        </div>
+    </div>
+            <div class="col">
+        <div class="card">
+            <div class="card-header">Edit a card </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-success me-2">PUT</div>
+                 <p class="fw-bold mb-0">api/edit/card/{cardId}</p>
+             </div>
+             <ul>
+                 <li>consist of: name .</li>
+             </ul>
+             <p>Response</p>
+             <ul>
+                 <li><code>"not yours to change ??</code></li>
+                    <li><code>"card changes saved"</code></li>
+          </ul>
+         </div>
+        </div>
+    </div>
+            <div class="col">
+        <div class="card">
+            <div class="card-header">Delete a card </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-danger me-2">DELETE</div>
+                 <p class="fw-bold mb-0">api/delete/card/{cardId} FAUDRAIT LIER AUSSI A LISTE SPE.</p>
+             </div>
+             <p>Response</p>
+             <ul>
+                 <li><code>"not yours to change</code></li>
+                    <li><code>"list changes saved"</code></li>
+          </ul>
+         </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

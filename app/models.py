@@ -9,10 +9,18 @@ class User(AbstractUser):
     USERNAME_FIELD = "username"
 
 
+# class Visibility(models.Model):
+#     name = models.CharField(max_length=256)
+#
+#     def __str__(self):
+#         return self.name
+
+
 class Board(models.Model):
     name = models.CharField(max_length=255)
     created = models.DateTimeField(auto_now_add=True)
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
+     # visibility = models.ForeignKey(Visibility, on_delete=models.DO_NOTHING)
 
 
 class List(models.Model):

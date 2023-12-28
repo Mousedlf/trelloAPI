@@ -1,13 +1,20 @@
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.generics import get_object_or_404
+from rest_framework.views import APIView
 
 from app.api.serializers import ListSerializer, BoardSerializer, CardSerializer, LabelSerializer, UserSerializer
 from app.models import List, Board, Card, Label, User
 
+
+# Doc _______________________________________________________________________________________
+def documentation(request):
+    return render(request, "../templates/documentation.html")
 
 # BOARDS _______________________________________________________________________________________
 
@@ -49,7 +56,7 @@ def show_board(request, id):
     return Response(serialized_board.data)
 
 
-@api_view(['POST'])
+@api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def edit_board(request, id):
     board = Board.objects.get(id=id)
@@ -169,3 +176,5 @@ def register(request):
             user.save()
             return Response("user created", status=status.HTTP_201_CREATED)
     return Response("try something different", status=status.HTTP_400_BAD_REQUEST)
+
+

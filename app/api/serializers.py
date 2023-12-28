@@ -7,10 +7,16 @@ from app.models import Card, List, Board, Label, User
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ["username", "password"]  # id, password
+        fields = ["username"]  # id, password
 
     def validate_password(self, value: str) -> str:
         return make_password(value)
+
+
+# class VisibilitySerializer(ModelSerializer):
+#     class Meta:
+#         model = Visibility
+#         fields = ['name']
 
 
 class LabelSerializer(ModelSerializer):
@@ -41,6 +47,7 @@ class BoardSerializer(ModelSerializer):
     lists = ListSerializer(many=True, required=False)
     labels = LabelSerializer(read_only=True, many=True)
     creator = UserSerializer(read_only=True)
+    # visibility = VisibilitySerializer(read_only=True)
 
 
 
