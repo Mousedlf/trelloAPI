@@ -10,8 +10,11 @@
 </head>
 <body class="container mt-5">
 
-<h1>Documentation Trello API Django</h1>
-<p>lalala</p>
+<h1 class="mb-4">Documentation Trello API Django</h1>
+<div class="mb-5">
+   <p class="fw-bold pb-0 m-0">route: trello.dlfcaroline.online/api</p>
+    <p>Authentification (by token) required for all routes except the one to register.</p>
+</div>
 
 <div class="row row-cols-3 g-2">
 
@@ -21,10 +24,11 @@
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-primary me-2">POST</div>
-                 <p class="fw-bold mb-0">api/register/</p>
+                 <p class="fw-bold mb-0">/register/</p>
              </div>
+             <p>Body</p>
              <ul>
-                 <li>explications sup</li>
+                 <li><code>{ "username":"caro", "password":"apassword" }</code></li>
              </ul>
              <p>Response</p>
              <ul>
@@ -36,18 +40,44 @@
     </div>
     <div class="col">
         <div class="card">
+            <div class="card-header">Login and get a token </div>
+         <div class="card-body">
+             <div class="d-flex align-items-center mb-3">
+                 <div class="badge text-bg-primary me-2">POST</div>
+                 <p class="fw-bold mb-0">/register/</p>
+             </div>
+             <ul>
+                 <li>get a JWT token as well as a refresh token</li>
+             </ul>
+             <p>Body</p>
+             <ul>
+                 <li><code>{ "username":"caro", "password":"apassword" }</code></li>
+             </ul>
+
+             <p>Response <span class="text-secondary">(I shortened the tokens below)</span> </p>
+             <ul>
+                 <li><code>{"refresh":"eyJVCJ9.eyJ0b2tlbl94cCIzZXJfaWQiOjJ9.bgY9cFjOt7zy8HiTIk","access":"eyJhbGciOiJIUzI1NiJ99pZCI6Mn0.9xreLxhvwo--ZK9f24nPeq9ln1Vs9sXDp9qj4bx_HCU"}</code></li>
+             </ul>
+         </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
             <div class="card-header">Index all users </div>
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-success me-2">GET</div>
-                 <p class="fw-bold mb-0">api/users/</p>
+                 <p class="fw-bold mb-0">/users/</p>
              </div>
              <ul>
-                 <li>explications sup</li>
+                 <li>a list of usernames</li>
              </ul>
              <p>Response</p>
              <ul>
-                 <li><code></code></li>
+                 <li><code>[
+    { "username": "caro" }, { "username": "caro1" }]</code></li>
+                 <li>faudrait ajouter l'id</li>
              </ul>
          </div>
         </div>
@@ -60,15 +90,16 @@
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-success me-2">GET</div>
-                 <p class="fw-bold mb-0">api/boards/</p>
+                 <p class="fw-bold mb-0">/boards/</p>
              </div>
              <ul>
-                 <li>explications sup</li>
+                 <li>a list of boards</li>
              </ul>
              <p>Response</p>
              <ul>
-                 <li><code></code></li>
+                 <li><a href="#exBoard">see example</a></li>
              </ul>
+
          </div>
         </div>
     </div>
@@ -78,15 +109,19 @@
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-primary me-2">POST</div>
-                 <p class="fw-bold mb-0">api/new/board/</p>
+                 <p class="fw-bold mb-0">/new/board/</p>
              </div>
              <ul>
-                 <li>lala</li>
+                 <li>just a name needed. Board is linked to a user/creator</li>
+                 <li>(ajout visibilité en cours)</li>
              </ul>
-             <p>Response</p>
+             <p>Body</p>
              <ul>
-                 <li><code></code></li>
-                 <li><code>"try again</code></li>
+                 <li><code>{ "name":"My first board" }</code></li>
+             </ul>
+              <p>Response</p>
+             <ul>
+                 <li><code>{ "id": 2, "creator": { "username": "caro1" }, "name": "My first board" }</code></li>
              </ul>
          </div>
         </div>
@@ -97,14 +132,14 @@
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-success me-2">GET</div>
-                 <p class="fw-bold mb-0">api/board/{boardId}</p>
+                 <p class="fw-bold mb-0">/board/{boardId}</p>
              </div>
              <ul>
-                 <li>consist of: lists, cards, labels</li>
+                 <li>consist of: id, creator, time of creation,name,  lists, cards, labels</li>
              </ul>
              <p>Response</p>
              <ul>
-                 <li><code></code></li>
+                 <li><a href="#exBoard">see example</a></li>
              </ul>
          </div>
         </div>
@@ -114,15 +149,16 @@
             <div class="card-header">Edit a board </div>
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
-                 <div class="badge text-bg-success me-2">GET</div>
-                 <p class="fw-bold mb-0">api/board/{boardId}</p>
+                 <div class="badge text-bg-warning me-2">PUT</div>
+                 <p class="fw-bold mb-0">/board/{boardId}</p>
              </div>
+             <p>Body</p>
              <ul>
-                 <li>consist of: lists, cards, labels</li>
+                 <li><code>{ "name":"Second Board" }</code></li>
              </ul>
              <p>Response</p>
              <ul>
-                 <li><code></code></li>
+                 <li><code>"board changes saved"</code></li>
              </ul>
          </div>
         </div>
@@ -133,9 +169,11 @@
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-danger me-2">DELETE</div>
-                 <p class="fw-bold mb-0">api/delete/board/{boardId}</p>
+                 <p class="fw-bold mb-0">/delete/board/{boardId}</p>
              </div>
-
+             <ul>
+                 <li>pas de verification??</li>
+             </ul>
              <p>Response</p>
              <ul>
                  <li><code>"bye bye board"</code></li>
@@ -149,11 +187,12 @@
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-primary me-2">POST</div>
-                 <p class="fw-bold mb-0">api/new/list/board/{boardId}</p>
+                 <p class="fw-bold mb-0">/new/list/board/{boardId}</p>
              </div>
+              <p>Body</p>
              <ul>
-                 <li>consist of: name</li>
-             </ul>
+                 <li><code>{ "name":"Things" }</code></li>
+            </ul>
              <p>Response</p>
              <ul>
                  <li><code>"new list created" et faudrait retourner l'objet.</code></li>
@@ -166,15 +205,19 @@
             <div class="card-header">Edit a list from a board </div>
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
-                 <div class="badge text-bg-success me-2">PUT</div>
-                 <p class="fw-bold mb-0">api/edit/list/{listId}</p>
+                 <div class="badge text-bg-warning me-2">PUT</div>
+                 <p class="fw-bold mb-0">/edit/list/{listId}</p>
              </div>
              <ul>
-                 <li>consist of: name .</li>
+                 <li>only the creator can edit </li>
              </ul>
+              <p>Body</p>
+             <ul>
+                 <li><code>{ "name":"Fruits" }</code></li>
+            </ul>
              <p>Response</p>
              <ul>
-                 <li><code>"not yours to change</code></li>
+                 <li><code>"not yours to change"</code></li>
                     <li><code>"list changes saved"</code></li>
           </ul>
          </div>
@@ -182,13 +225,15 @@
     </div>
         <div class="col">
         <div class="card">
-            <div class="card-header">delete a list  </div>
+            <div class="card-header">Delete a list  </div>
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-danger me-2">DELETE</div>
-                 <p class="fw-bold mb-0">api/delete/list/{listId}</p>
+                 <p class="fw-bold mb-0">/delete/list/{listId}</p>
              </div>
-
+             <ul>
+                 <li>pas de verification??</li>
+             </ul>
              <p>Response</p>
              <ul>
                 <li><code> pas de verification??</code></li>
@@ -202,16 +247,16 @@
             <div class="card-header">Add a card to a list </div>
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
-                 <div class="badge text-bg-primaryuccess me-2">POST</div>
-                 <p class="fw-bold mb-0">api/new/card/list/{listId}</p>
+                 <div class="badge text-bg-primary me-2">POST</div>
+                 <p class="fw-bold mb-0">/new/card/list/{listId}</p>
              </div>
+             <p>Body</p>
              <ul>
-                 <li>consist of: content .</li>
-                 <li>mettre exemple de body</li>
+                 <li><code>{ "content":"lalala framboise" }</code></li>
              </ul>
              <p>Response</p>
              <ul>
-                 <li><code>"no such list"</code></li>
+                 <li><code>"no such list"</code>-> invalid id</li>
                     <li><code>"card created"</code></li>
           </ul>
          </div>
@@ -222,15 +267,18 @@
             <div class="card-header">Edit a card </div>
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
-                 <div class="badge text-bg-success me-2">PUT</div>
-                 <p class="fw-bold mb-0">api/edit/card/{cardId}</p>
+                 <div class="badge text-bg-warning me-2">PUT</div>
+                 <p class="fw-bold mb-0">/edit/card/{cardId}</p>
              </div>
              <ul>
-                 <li>consist of: name .</li>
+                 <li>manque verif</li>
              </ul>
+                          <p>Body</p>
+             <ul>
+                    <li><code>{ "content":"kiwi" }</code></li>
+          </ul>
              <p>Response</p>
              <ul>
-                 <li><code>"not yours to change ??</code></li>
                     <li><code>"card changes saved"</code></li>
           </ul>
          </div>
@@ -242,12 +290,14 @@
          <div class="card-body">
              <div class="d-flex align-items-center mb-3">
                  <div class="badge text-bg-danger me-2">DELETE</div>
-                 <p class="fw-bold mb-0">api/delete/card/{cardId} FAUDRAIT LIER AUSSI A LISTE SPE.</p>
+                 <p class="fw-bold mb-0">/delete/card/{cardId} FAUDRAIT LIER AUSSI A LISTE SPE.</p>
              </div>
+              <ul>
+                 <li>pas de verification??</li>
+             </ul>
              <p>Response</p>
              <ul>
-                 <li><code>"not yours to change</code></li>
-                    <li><code>"list changes saved"</code></li>
+                 <li><code>"card deleted"</code></li>
           </ul>
          </div>
         </div>
@@ -256,10 +306,65 @@
 
 
 
+
 </div>
 
+    <div class="mt-5" id="exBoard">
+        <h3>Example of a board:</h3>
+          <pre id="boardJSON" ></pre>
+    </div>
 
 
+<script>
+    var boardjson = [
+    {
+        "id": 1,
+        "creator": {
+            "username": "caro"
+        },
+        "created": "08-11-2023, 08:25",
+        "name": "A board",
+        "labels": [
+            {
+                "id": 1,
+                "name": "rouge"
+            }
+        ],
+        "lists": [
+            {
+                "id": 1,
+                "creator": {
+                    "username": "caro"
+                },
+                "name": "Fruits",
+                "cards": [
+                    {
+                        "id": 1,
+                        "content": "lalala framboise",
+                        "label": null
+                    },
+                    {
+                        "id": 2,
+                        "content": "lalala kiwi",
+                        "label": null
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "creator": {
+                    "username": "caro"
+                },
+                "name": "Things",
+                "cards": []
+            }
+        ]
+    }
+];
+
+    document.getElementById("boardJSON").innerHTML = JSON.stringify(boardjson, null, 4);
+
+  </script>
 
 
 

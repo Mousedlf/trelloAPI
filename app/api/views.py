@@ -60,7 +60,7 @@ def show_board(request, id):
 @permission_classes([IsAuthenticated])
 def edit_board(request, id):
     board = Board.objects.get(id=id)
-    if request.method == 'POST':
+    if request.method == 'PUT':
         serialized_board = BoardSerializer(instance=board, data=request.data)
         if serialized_board.is_valid():
             serialized_board.save()
@@ -94,14 +94,14 @@ def new_list(request,id):
             return Response("new list created")
 
 
-@api_view(['POST'])
+@api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def edit_list(request,id):
     list = List.objects.get(id=id)
     if list.creator != request.user:
          return Response("not yours to change")
 
-    if request.method == 'POST':
+    if request.method == 'PUT':
         serialized_list = ListSerializer(instance=list, data=request.data)
         if serialized_list.is_valid():
             serialized_list.save()
@@ -134,12 +134,12 @@ def new_card(request, id):
             return Response("card created")
 
 
-@api_view(['POST'])
+@api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def edit_card(request, id):
     card = Card.objects.get(id=id)
     # verif si carte existe bien
-    if request.method == 'POST':
+    if request.method == 'PUT':
         serialized_card = CardSerializer(instance=card, data=request.data)
         if serialized_card.is_valid():
             serialized_card.save()
